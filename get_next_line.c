@@ -13,11 +13,17 @@
 #include "get_next_line.h"
 
 static something(const int fd, char **file, )
+{
 
+}
+/* */
 int		get_next_line(const int fd, char **file)
 {
-	int i;
-	int j;
+	static char	*buff_store;
+	char		buff[BUFF_SIZE + 1];
+	int 		ret;
 
+	if (fd == -1 || BUFF_SIZE <= 0)
+		return (-1);
 
 }
