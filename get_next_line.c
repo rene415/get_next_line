@@ -12,18 +12,20 @@
 
 #include "get_next_line.h"
 
-static something(const int fd, char **file, )
+static char  saving()
 {
 
 }
-/* */
+
+/**
+ * Starting to change things... check the buff */
 int		get_next_line(const int fd, char **file)
 {
-	static char	*buff_store;
+	static char	*buff_store[4096];
 	char		buff[BUFF_SIZE + 1];
 	int 		ret;
 
-	if (fd == -1 || BUFF_SIZE <= 0)
+	if (fd == -1 || BUFF_SIZE <= 0 || !line)
 		return (-1);
-
+	while (ret = read(fd, buff, BUFF_SIZE))
 }
