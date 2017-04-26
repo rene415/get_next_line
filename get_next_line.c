@@ -27,5 +27,12 @@ int		get_next_line(const int fd, char **file)
 
 	if (fd == -1 || BUFF_SIZE <= 0 || !line)
 		return (-1);
-	while (ret = read(fd, buff, BUFF_SIZE))
+	while (ret = read(fd, buff, BUFF_SIZE) > 0)
+	{
+		buff[ret] = '\0';
+		if (!buff_store)
+		{
+			
+		}
+	}
 }
