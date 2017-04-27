@@ -32,9 +32,9 @@ int		get_next_line(const int fd, char **file)
 	while (ret = read(fd, buff, BUFF_SIZE) > 0)
 	{
 		buff[ret] = '\0';
-		if (!buff_store)
-		{
-			tr = ft_strjoin(buff_store, buff);
-		}
+		tr = ft_strjoin(buff_store, buff);
+		free(buff_store);
+		ft_strchr(buff_store, '\n');
 	}
+	return (0);
 }
