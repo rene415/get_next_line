@@ -34,7 +34,9 @@ int		get_next_line(const int fd, char **file)
 		buff[ret] = '\0';
 		tr = ft_strjoin(buff_store, buff);
 		free(buff_store);
-		ft_strchr(buff_store, '\n');
+		buff_store = tr;
+		if (ft_strchr(buff_store, '\n'))
+			break;
 	}
 	return (0);
 }
