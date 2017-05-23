@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:18:40 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/16 20:13:10 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/19 18:54:02 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@
 #define	FALSE			0
 
 int		get_next_line(const int	fd, char ** line);
-char	buff_read(char *buff_store, char *buff, int fd);
+char	buff_read(char *buff_store, char *buff, int fd, char *tmpr);
 #endif
