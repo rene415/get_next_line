@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:18:53 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/25 17:44:27 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/25 18:19:04 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int		ft_len(char *buff_store, char c)
 
 int		store_to_line(char **buff_store, char **line)
 {
-	char *tmpr;
-	int len;
+	char	*tmpr;
+	int		len;
 
 	tmpr = NULL;
-	if(ft_strlen(*buff_store))
+	if (ft_strlen(*buff_store))
 	{
 		len = ft_len(*buff_store, '\n');
-		if (strchr(*buff_store, '\n'))
+		if (ft_strchr(*buff_store, '\n'))
 		{
 			*line = ft_strsub(*buff_store, 0, len);
 			tmpr = ft_strdup(*buff_store + len);
@@ -44,7 +44,7 @@ int		store_to_line(char **buff_store, char **line)
 			*buff_store = tmpr;
 			return (1);
 		}
-		*line = strdup(*buff_store);
+		*line = ft_strdup(*buff_store);
 		free(*buff_store);
 		*buff_store = NULL;
 		return (1);
@@ -52,7 +52,7 @@ int		store_to_line(char **buff_store, char **line)
 	return (0);
 }
 
-char 	*buff_read(char *buff_store, char *buff, int fd)
+char	*buff_read(char *buff_store, char *buff, int fd)
 {
 	size_t			ret;
 	char			*tmp;
@@ -68,7 +68,7 @@ char 	*buff_read(char *buff_store, char *buff, int fd)
 		free(buff_store);
 		buff_store = tmp;
 		if (ft_strchr(buff_store, '\n'))
-			break;
+			break ;
 	}
 	return (buff_store);
 }
@@ -79,7 +79,6 @@ int		get_next_line(const int fd, char **line)
 	static char		*buff_store;
 	char			*tmpr;
 
-//	static int		x = 0;
 	tmpr = NULL;
 	if (fd == -1 || BUFF_SIZE <= 0 || !line)
 		return (-1);
