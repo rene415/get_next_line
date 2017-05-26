@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:18:53 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/24 18:30:14 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/25 17:44:27 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char 	*buff_read(char *buff_store, char *buff, int fd)
 		if (ft_strchr(buff_store, '\n'))
 			break;
 	}
-	return (tmp);
+	return (buff_store);
 }
 
 int		get_next_line(const int fd, char **line)
@@ -79,8 +79,7 @@ int		get_next_line(const int fd, char **line)
 	static char		*buff_store;
 	char			*tmpr;
 
-
-	static int		x = 0;
+//	static int		x = 0;
 	tmpr = NULL;
 	if (fd == -1 || BUFF_SIZE <= 0 || !line)
 		return (-1);
@@ -89,10 +88,6 @@ int		get_next_line(const int fd, char **line)
 	if (buff_store == NULL)
 		return (0);
 	if (store_to_line(&buff_store, line))
-	{
-		printf("x = %i\n", x);
-		x++;
 		return (1);
-	}
 	return (0);
 }
