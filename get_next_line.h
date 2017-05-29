@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:18:40 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/25 18:11:24 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/29 15:36:18 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "get_next_line.h"
 # include "libft/libft.h"
 
-# define BUFF_SIZE		10
+# define BUFF_SIZE		100
 # define TRUE			1
 # define FALSE			0
 
