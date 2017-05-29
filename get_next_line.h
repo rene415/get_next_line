@@ -24,7 +24,7 @@
 # define FALSE			0
 
 int				get_next_line(const int	fd, char **line);
-char			*buff_read(char *buff_store, char *buff, int fd);
+char			*buff_read(char *buff_store, int fd);
 int				ft_len(char *buff_store, char c);
 int				store_to_line(char **buff_store, char **line);
 #endif

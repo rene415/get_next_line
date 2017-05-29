@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/25 18:31:26 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/25 18:39:33 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/26 13:32:15 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		main(int argc, char **argv)
 {
 	int		fd;
-	char 	*file;
+	char	*file;
 
 	if (argc > 1)
 	{

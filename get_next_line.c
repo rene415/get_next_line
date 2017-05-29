@@ -6,7 +6,7 @@
 /*   By: rramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 20:18:53 by rramirez          #+#    #+#             */
-/*   Updated: 2017/05/25 18:19:04 by rramirez         ###   ########.fr       */
+/*   Updated: 2017/05/26 14:28:14 by rramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 int		ft_len(char *buff_store, char c)
 {
-	int		i;
 	int		len;
 
-	i = 0;
 	len = 0;
-	while (buff_store[i] != '\0' && buff_store[i] != c)
-	{
-		i++;
+	while (buff_store[len] != '\0' && buff_store[len] != c)
 		len++;
-	}
 	return (len + 1);
 }
 
@@ -38,7 +33,7 @@ int		store_to_line(char **buff_store, char **line)
 		len = ft_len(*buff_store, '\n');
 		if (ft_strchr(*buff_store, '\n'))
 		{
-			*line = ft_strsub(*buff_store, 0, len);
+			*line = ft_strsub(*buff_store, 0, (len - 1));
 			tmpr = ft_strdup(*buff_store + len);
 			free(*buff_store);
 			*buff_store = tmpr;
@@ -52,10 +47,11 @@ int		store_to_line(char **buff_store, char **line)
 	return (0);
 }
 
-char	*buff_read(char *buff_store, char *buff, int fd)
+char	*buff_read(char *buff_store, int fd)
 {
 	size_t			ret;
 	char			*tmp;
+	char			buff[BUFF_SIZE + 1];
 
 	ret = 0;
 	tmp = NULL;
@@ -67,7 +63,7 @@ char	*buff_read(char *buff_store, char *buff, int fd)
 		tmp = ft_strjoin(buff_store, buff);
 		free(buff_store);
 		buff_store = tmp;
-		if (ft_strchr(buff_store, '\n'))
+		if (ft_strchr(buff, '\n'))
 			break ;
 	}
 	return (buff_store);
@@ -75,15 +71,13 @@ char	*buff_read(char *buff_store, char *buff, int fd)
 
 int		get_next_line(const int fd, char **line)
 {
-	char			buff[BUFF_SIZE + 1];
 	static char		*buff_store;
 	char			*tmpr;
 
 	tmpr = NULL;
-	if (fd == -1 || BUFF_SIZE <= 0 || !line)
+	if (fd == -1 || BUFF_SIZE <= 0 || !line || read(fd, buff_store, 0) < 0)
 		return (-1);
-	tmpr = buff_read(buff_store, buff, fd);
-	buff_store = tmpr;
+	buff_store = buff_read(buff_store, fd);
 	if (buff_store == NULL)
 		return (0);
 	if (store_to_line(&buff_store, line))
